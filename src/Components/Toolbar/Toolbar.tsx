@@ -17,7 +17,7 @@ const Toolbar = () => {
                 </a>
             </div>
             {funnel && <CommonButton handleClick={resetFile}>
-                Upload new file
+                Start again
             </CommonButton>}
         </nav>
     );

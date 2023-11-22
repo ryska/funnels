@@ -4,15 +4,17 @@ import Template from '../Template/Template';
 import Toolbar from '../Toolbar/Toolbar';
 import { useContext } from 'react';
 import FunnelContext, { FunnelContextType } from '../../context/Context';
+import { ArrowPathIcon } from "@heroicons/react/24/outline";
 
 const Home = () => {
     const { handleFileChange } = useFileUpload();
-    const { funnel } = useContext(FunnelContext) as FunnelContextType;
+    const { funnel, isLoading } = useContext(FunnelContext) as FunnelContextType;
 
     return (
         <>
             <Toolbar />
             <div className="flex items-center justify-center h-[calc(100vh-80px)] mb-4 font-nunito">
+                {isLoading && <ArrowPathIcon className='animate-spin w-20 text-rose-200' />}
                 {!funnel ?
                     <div className="container flex flex-col items-center justify-center mx-auto w-4/5 h-4/5 bg-violet-100 rounded-3xl p-4">
                         <h1 className='text-2xl mb-2'>Welcome! 👋</h1>

@@ -8,13 +8,18 @@ interface Props {
 
 const FunnelProvider: FC<Props> = ({ children }) => {
   const [funnel, setFunnel] = useState<Funnel | null>(null);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const updateFunnel = (updatedFunnel: Funnel | null) => {
     setFunnel(updatedFunnel);
   };
 
+  const updateIsLoading = (updateIsLoading: boolean) => {
+    setIsLoading(updateIsLoading);
+  }
+
   return (
-    <Context.Provider value={{ funnel, updateFunnel }}>
+    <Context.Provider value={{ funnel, isLoading, updateFunnel, updateIsLoading }}>
       {children}
     </Context.Provider>
   );

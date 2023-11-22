@@ -5,7 +5,7 @@ import FunnelContext from '../context/Context';
 
 const useFileUpload = () => {
     const context = useContext(FunnelContext);
-    const { updateFunnel } = context as FunnelContextType;
+    const { updateFunnel, updateIsLoading } = context as FunnelContextType;
 
     const handleFileChange = (event: React.FormEvent<HTMLInputElement>) => {
         const target = event.target as HTMLInputElement & { files: FileList };
@@ -17,6 +17,8 @@ const useFileUpload = () => {
             fileReader.onload = (e) => {
                 e.target?.result && updateFunnel(JSON.parse(e.target.result as string) as Funnel);
             };
+            fileReader.onloadstart = () => updateIsLoading(true);
+            fileReader.onloadend = () => updateIsLoading(false);
         }
     };
 
