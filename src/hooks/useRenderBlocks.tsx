@@ -7,18 +7,18 @@ import List from '../Components/List/List';
 
 export const useBlockRenderer = () => {
     const renderBlock = useMemo(() => {
-        return (block: Block) => {
+        return (block: Block, index: number) => {
             switch (block.type) {
                 case 'text':
-                    return <Text key={block.id} text={block.text} color={block.color} align={block.align} />;
+                    return <Text key={index} text={block.text} color={block.color} align={block.align} />;
                 case 'image':
-                    return <Image key={block.id} src={block.src} />;
+                    return <Image key={index} src={block.src} />;
                 case 'list':
-                    return <List key={block.id} items={block.items} />;
+                    return <List key={index} items={block.items} />;
                 case 'button':
                     return (
                         <Button
-                            key={block.id}
+                            key={index}
                             text={block.text}
                             color={block.color}
                             bgColor={block.bgColor}
