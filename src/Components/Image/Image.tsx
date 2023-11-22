@@ -1,9 +1,8 @@
-import React, { FC } from 'react';
+import { FC } from 'react';
 
 interface ImageProps {
     src: string;
 }
-
 const Image: FC<ImageProps> = ({ src }) => {
     return (
         <div className='mb-4'>

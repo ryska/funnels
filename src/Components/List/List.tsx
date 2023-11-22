@@ -1,4 +1,4 @@
-import React, { FC, useMemo } from 'react';
+import { FC, useMemo } from 'react';
 import ListItem from './ListItem/ListItem';
 
 interface ListProps {
@@ -8,7 +8,6 @@ interface ListProps {
         src: string;
     }[];
 }
-
 const List: FC<ListProps> = ({ items }) => {
 
     const renderItems = useMemo(() => items.map((item, index) => {

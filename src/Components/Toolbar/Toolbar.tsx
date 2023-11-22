@@ -1,15 +1,26 @@
-import React from 'react';
+import { useContext } from 'react';
+import CommonButton from '../CommonButton/CommonButton';
+import useFileUpload from '../../hooks/useFileUpload';
+import FunnelContext, { FunnelContextType } from '../../context/Context';
+
 
 const Toolbar = () => {
+    const { resetFile } = useFileUpload();
+    const context = useContext(FunnelContext);
+    const { funnel } = context as FunnelContextType;
+
     return (
-        <nav className='h-20 w-full p-4'>
+        <nav className='w-full p-4 flex justify-between items-center'>
             <div className='w-10'>
                 <a href='https://www.perspective.co/' target='_blank'>
-                    <img src='https://perspective.imgix.net/assets/app/logo/256x256.png?auto=compress&dpr=2' alt="perspective logo" />
+                    <img src='logo.png' alt="perspective logo" />
                 </a>
             </div>
+            {funnel && <CommonButton handleClick={resetFile}>
+                Upload new file
+            </CommonButton>}
         </nav>
-    )
-}
+    );
+};
 
 export default Toolbar;

@@ -1,4 +1,4 @@
-export type Text = {
+type Text = {
     id: string;
     type: 'text';
     text: string;
@@ -6,25 +6,25 @@ export type Text = {
     align: 'left' | 'center' | 'right';
 };
 
-export type Image = {
+type Image = {
     id: string;
     type: 'image';
     src: string;
 };
 
-export type ListItem = {
+type ListItem = {
     title: string;
     description: string;
     src: string;
 };
 
-export type List = {
+type List = {
     id: string;
     type: 'list';
     items: ListItem[];
 };
 
-export type Button = {
+type Button = {
     id: string;
     type: 'button';
     text: string;

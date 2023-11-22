@@ -1,11 +1,10 @@
-import React, { FC } from 'react';
+import { FC } from 'react';
 
 interface ListItemProps {
     title: string;
     description: string;
     src: string;
 }
-
 const ListItem: FC<ListItemProps> = ({ title, description, src }) => {
     return (
         <div className='flex flex-col items-center mb-2'>

@@ -1,11 +1,10 @@
-import React, { FC } from 'react';
+import { FC } from 'react';
 
 interface TextProps {
     text: string;
     color: string;
     align: 'left' | 'center' | 'right';
 }
-
 const Text: FC<TextProps> = ({ text, color, align }) => {
 
     const textStyle = {
