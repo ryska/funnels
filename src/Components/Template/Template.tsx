@@ -1,12 +1,7 @@
-import React, { FC, useEffect, useMemo, useRef, useState } from 'react';
-import Button from '../Button/Button';
-import Image from '../Image/Image';
-import Text from '../Text/Text';
-import List from '../List/List';
-import FileUpload from '../FileUpload/FileUpload';
-import useFileUpload from '../../hooks/useFileUpload';
+import { FC, useEffect, useState } from 'react';
 import { Funnel } from '../../types/funnel';
 import Page from '../Page/Page';
+import { ArrowSmallRightIcon, ArrowSmallLeftIcon } from "@heroicons/react/24/outline";
 
 interface TemplateProps {
     data: Funnel;
@@ -24,26 +19,28 @@ const Template: FC<TemplateProps> = ({ data }) => {
         <div className="container flex items-center justify-center h-screen w-screen font-nunito bg-violet-100">
             {data && data.pages.length > 0 && (
                 <>
-                    <div className='container flex flex-col'>
-                        <div className="flex justify-between w-full mt-4">
+                    <div className='container flex items-center'>
+                        <div className="flex items-center justify-center w-full mt-4">
                             <button
-                                className="bg-blue-500 text-white px-4 py-2 rounded"
+                                className="bg-rose-400 text-white px-3 py-2 m-2 rounded"
                                 onClick={() => setPageNumber(pageNumber - 1)}
                                 disabled={pageNumber === 0}
                             >
-                                Previous Page
+                                <ArrowSmallLeftIcon className="h-6 w-6 mx-1 color-white" />
                             </button>
+                            <div className='flex justify-center'>
+                                <Page page={data.pages[pageNumber]} bgColor={data.bgColor} />
+                            </div>
+                            
                             <button
-                                className="bg-blue-500 text-white px-4 py-2 rounded"
+                                className="bg-rose-400 text-white  px-3 py-2 m-2 rounded"
                                 onClick={() => setPageNumber(pageNumber + 1)}
                                 disabled={pageNumber === data.pages.length - 1}
                             >
-                                Next Page
+                                <ArrowSmallRightIcon className="h-6 w-6 mx-1 color-white" />
                             </button>
                         </div>
-                        <div className='flex justify-center'>
-                            <Page page={data.pages[pageNumber]} bgColor={data.bgColor} />
-                        </div>
+
                     </div>
                 </>
             )}

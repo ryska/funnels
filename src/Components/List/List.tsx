@@ -1,4 +1,4 @@
-import React, { FC, useCallback, useMemo } from 'react';
+import React, { FC, useMemo } from 'react';
 import ListItem from './ListItem/ListItem';
 
 interface ListProps {

@@ -18,7 +18,7 @@ const Button: FC<ButtonProps> = ({ text, color, bgColor }) => {
     }
 
     return (
-        <div className='mb-4  flex justify-center'>
+        <div className='mb-4 flex justify-center'>
             <button style={buttonStyle} type="button" className="w-full max-w-400 rounded shadow font-semibold py-2 px-6" onClick={handleClick}>
                 {text}
             </button>
